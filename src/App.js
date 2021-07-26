@@ -1,25 +1,32 @@
+import { PropTypes } from "prop-types";
+
 import logo from './logo.svg';
 import './App.css';
+
+import Info from "./Components/Info.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Info title="Ryan" />
+      <Info />
+      <AddItem text="yehaw" num={2}/>
     </div>
   );
+}
+
+function AddItem(props) {
+  return (
+    <form>
+      <label for="text-form">Type {props.text}: </label>
+      <input type={props.text} id="text-form" />
+      <p>{props.num}</p>
+    </form>
+  );
+}
+
+AddItem.propTypes = {
+  num: PropTypes.number,
 }
 
 export default App;
